@@ -1,0 +1,96 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+GET http://127.0.0.1:8000/user/code?email=3311384165@qq.com
+
+
+###  ← 关键！必须用这个分隔符，才能让插件识别下一个请求
+# POST 请求（关键：请求头和JSON之间空一行！）
+POST http://127.0.0.1:8000/user/register
+Content-Type: application/json
+
+{
+    "email": "3311384165@qq.com",
+    "username": "小莫",
+    "password": "123456",
+    "confirm_password": "123456",
+    "code": "4983"
+}
+
+
+###  ← 关键！必须用这个分隔符，才能让插件识别下一个请求
+# POST 请求（关键：请求头和JSON之间空一行！）
+POST http://127.0.0.1:8000/user/login
+Content-Type: application/json
+
+{
+    "email": "3311384165@qq.com",
+    "password": "12345sss6"
+}
+
+
+
+
+###
+GET http://127.0.0.1:8000/cities
+
+
+###
+GET http://127.0.0.1:8000/scenery
+
+
+###
+GET http://127.0.0.1:8000/food/hot
+
+
+###
+GET http://127.0.0.1:8000/culture
+
+###
+GET http://127.0.0.1:8000/scenery/1
+
+###
+GET http://127.0.0.1:8000/scenery/images/1
+
+
+###
+GET http://127.0.0.1:8000/scenery/list?name=&page=1&pageSize=8
+
+
+###  ← 关键！必须用这个分隔符，才能让插件识别下一个请求
+# POST 请求（关键：请求头和JSON之间空一行！）
+POST http://127.0.0.1:8000/agent/generate
+Content-Type: application/json
+
+{
+  "thread_id": "user_session_123456",
+  "form_data": {
+    "departure": "济南",
+    "destination": "青岛",
+    "start_date": "2026-06-15",
+    "days": "5",
+    "travelers": "3-5 人 (家庭/结伴)",
+    "budget": "3000",
+    "preferences": ["自然风光", "海滨度假"]
+  }
+}
+
+
+###  ← 关键！必须用这个分隔符，才能让插件识别下一个请求
+# POST 请求（关键：请求头和JSON之间空一行！）
+POST http://127.0.0.1:8000/advice
+Content-Type: application/json
+
+{
+    "advice": "sdasdsadasd",
+    "name": "",
+    "phone": ""
+}

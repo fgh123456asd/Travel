@@ -1,0 +1,11 @@
+    app.mount("/static", StaticFiles(directory="static"))
+
+    ###StaticFiles(directory="static")  把我项目里 名字叫 static 的文件夹 托管出去
+
+
+
+    @property
+    def image_url(self) -> str | None:
+        if self.image:
+            return f"http://127.0.0.1:8000/static/{self.image}"
+        return None
